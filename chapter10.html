@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport"
+              content="initial-scale=1,
+                       maximum-scale=1,
+                       user-scalable=no">
+        <title>2017-2018 Fire Incidents for Baton Rouge, LA</title>
+        <link rel="stylesheet" href="https://js.arcgis.com/4.10/esri/css/main.css"> 
+        <script src="https://js.arcgis.com/4.10/"></script>
+
+        <style>
+            html, body, #viewDiv {
+                padding: 0;
+                margin: 0;
+                height: 100%;
+                width: 100%;
+            }
+        </style>
+
+        <script>
+            require([
+                "esri/Map",
+                "esri/views/MapView",
+                "esri/layers/FeatureLayer"
+            ],
+            function(Map, MapView, FeatureLayer) {
+                var map = new Map({
+                    basemap: "streets"
+                });
+
+                var view = new MapView({
+                    container: "viewDiv",
+                    map: map,
+                    extent: {
+                        xmin: -91.3,
+                        ymin: 30.2,
+                        xmax: -90.9,
+                        ymax: 30.6
+                    }
+                });
+
+                var featureLayer = new FeatureLayer({
+                    url: "https://services9.arcgis.com/SDQDNhpG8jikA0D1/arcgis/rest/services/2017_2018_Fire_Incidents/FeatureServer"
+                });
+
+                map.add(featureLayer);
+            });
+        </script>
+   </head>
+
+   <body>
+       <div id="viewDiv"></div>
+   </body>
+</html>
