@@ -71,12 +71,24 @@ function iterateFeatures() {
 }
 
 var selectedYear = document.getElementById('year');
-selectedYear.addEventListener('change', function() {
-    var copy = fireIncidents;
-    fireIncidents.setWhere("year='2017'");
-});
+selectedYear.value = "any";
+selectedYear.addEventListener('change', function () {
+  var qstring = '1=1';
+  if (selectedYear.value !== 'any') {
+    var filterByYear = parseInt(selectedYear.value);
+    qstring = "DISPATCH_DATE between '01/01/" + filterByYear + "' and '12/31/" + filterByYear + "'";
+  }
+  if (map.hasLayer(fireIncidents)) {
+      fireIncidents.setWhere(qstring);
+  }
+  else {
+      heatMap.setWhere(qstring);
+  }
+})
+
 
 var heatMapCheckBox = document.getElementById('heat');
+heatMapCheckBox.checked = false;
 heatMapCheckBox.addEventListener('change', function() {
     if (heatMapCheckBox.checked == true) {
         if (map.hasLayer(fireIncidents)) {

@@ -14,23 +14,40 @@
         <div class="container-fluid">
             <h1>Baton Rouge Fire Incidents</h1>
         </div>
-        <div id="mapDiv"></div>
-        <div id="query"
-             class="leafet-bar">
-            <label>
-                Year
-                <select id="year">
-                    <option value="1=1">Any</option>
-                    <option value="2017">2017</option>
-                    <option value="2018">2018</option>
-                </select>
-            </label>    
+        <div>
+            <div id="mapDiv"></div>
+            <div id="query"
+                 class="leafet-bar">
+                <label>
+                    Year
+                    <select id="year" value="any">
+                        <option value="any" selected>Any</option>
+                        <option value="2017">2017</option>
+                        <option value="2018">2018</option>
+                    </select>
+                </label>    
+            </div>
+        </div>
+        <form>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="heat" unchecked>
+                <label class="form-check-label" for="heat">Use Heatmap</label>
+            </div>
+        </form>
+        <div>
+            <h4 class="text-left">Purpose</h4>
+            <p class="text-left">This site shows fire incident data reported by Baton Rouge Fire Departments. Details about each incident can be shown by clicking on the icon for the incident. Some incidents from places outside the Baton Rouge limits were not provided like in Central or Zachary.
+                Using this map, we can see where the most incidents occur and can change staffing and funding for different fire departments based on need.
+            </p>
+            <h4 class="text-left">Sources</h4>
+            <p class="text-left">Baton Rouge Fire Incidents: <a href="https://data.brla.gov/Public-Safety/Baton-Rouge-Fire-Incidents/dakq-4sda/data">Open Data BR</a></p>
+            <p class="text-left">This data has been modified to only show incidents in 2017 and 2018 to reduce server load and increase responsiveness.</p>
+            <br>
+            <p class="text-left">Baton Rouge Fire Stations: <a href="https://data.brla.gov/Government/Public-Facilities/4u7h-jsge/data">Open Data BR</a></p>
+            <p class="text-left">This data has been modified to only show Fire Protection facilities.</p>
+            
         </div>
         <div>Icons made by <a href="https://www.freepik.com/" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" 			    title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" 			    title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
-        <div>
-            <input type="checkbox"
-                   id="heat">Use Heatmap
-        </div>
         
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
